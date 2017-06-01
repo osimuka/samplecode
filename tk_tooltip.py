@@ -45,9 +45,9 @@ class ToolTip(object):
             return
         if self.tag:
             self.index = self.widget.index("@%s,%s" % (event.x, event.y))
-        # when the object doesn't attribute 'activebackground'
         try:
             self.widget.configure(background=color, activebackground=color)
+        # when the widget object doesn't have attribute 'activebackground'
         except error:
             self.widget.configure(background=color)
         finally:
@@ -58,7 +58,7 @@ class ToolTip(object):
         self.abg = self.widget["background"]
         try:
             self.widget.configure(background=color, activebackground=color)
-        # when the object doesn't attribute 'activebackground'
+        # when the widget object doesn't have attribute 'activebackground'
         except error:
             self.widget.configure(background=color)
         finally:
