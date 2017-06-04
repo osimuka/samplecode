@@ -5,12 +5,12 @@ __all__ = "chatbot_2"
 
 chatbot_2 = ChatBot(
     name="Wall-E",
-    input_adapter="chatterbot.input.TerminalAdapter",
-    output_adapter="chatterbot.output.TerminalAdapter",
+    input_adapter="server.SlackInputAdapter",
+    output_adapter="server.SlackOutputAdapter",
     trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
     )
 
-chatbot_2.train('chatterbot.corpus.english.greetings')
+chatbot_2.train('chatterbot.corpus.english')
 
 # test bot 2
 if __name__ == "__main__":

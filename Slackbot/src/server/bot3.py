@@ -4,8 +4,8 @@ __all__ = "chatbot_3"
 
 chatbot_3 = ChatBot(
     name="Agent Smith",
-    input_adapter="chatterbot.input.TerminalAdapter",
-    output_adapter="chatterbot.output.TerminalAdapter",
+    input_adapter="server.SlackInputAdapter",
+    output_adapter="server.SlackOutputAdapter",
     storage_adapter='chatterbot.storage.JsonFileStorageAdapter',
     logic_adapters=[
         'chatterbot.logic.BestMatch'
