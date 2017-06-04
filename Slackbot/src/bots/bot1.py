@@ -1,14 +1,17 @@
 from chatterbot import ChatBot
 
+__all__ = "bot_1"
 
-class Bot1(object):
-    name = "HAL 9000"
-    chatbot = ChatBot(
-        name,
-        trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
-        input_adapter='client.input_slackchat.InputAdapter',
-        output_adapter='client.output_slackchat.OutputAdapter',
+
+class Bot1(ChatBot):
+    def __init__(self, **kwargs):
+        super(Bot1, self).__init__(**kwargs)
+
+
+bot_1 = Bot1(
+    name="HAL 9000",
+    trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
     )
-    chatbot.train('chatterbot.corpus.english')
+bot_1.train('chatterbot.corpus.english')
 
 
