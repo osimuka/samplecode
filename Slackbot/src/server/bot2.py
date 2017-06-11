@@ -5,8 +5,8 @@ __all__ = "chatbot_2"
 
 chatbot_2 = ChatBot(
     name="Wall-E",
-    input_adapter="server.SlackInputAdapter",
-    output_adapter="server.SlackOutputAdapter",
+    input_adapter="input.SlackChat",
+    output_adapter="output.SlackChat",
     trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
     )
 
