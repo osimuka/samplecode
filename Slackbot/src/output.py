@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from input import credentials
 from chatterbot.output import OutputAdapter
+from config import setting
 
-__all__ = "SlackChat"
+__all__ = ["SlackChat"]
 
 
 class SlackChat(OutputAdapter):
@@ -14,8 +15,8 @@ class SlackChat(OutputAdapter):
     def __init__(self, **kwargs):
         super(SlackChat, self).__init__(**kwargs)
         self.host = kwargs.get('host', 'https://slack.com')
-        self.channel = kwargs.get('channel', credentials['id'])
-        self.token = kwargs.get('token', credentials['token'])
+        self.channel = kwargs.get('channel', setting["CHANNEL"])
+        self.token = kwargs.get('token', setting["TOKEN"])
         self.thread_id = kwargs.get('thread_id')
         self.username = kwargs.get('name')
 
