@@ -1,18 +1,12 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from time import sleep
 import json
 from chatterbot.input import InputAdapter
 from chatterbot.conversation import Statement
+from config import setting
 
-__all__ = "SlackChat"
-
-
-def read_startup_file():
-    with open("credentials.json") as data_file:
-        data = json.load(data_file)
-    return data
-
-credentials = read_startup_file()
+__all__ = ["SlackChat"]
 
 
 class SlackChat(InputAdapter):
@@ -26,8 +20,8 @@ class SlackChat(InputAdapter):
 
         self.host = kwargs.get('host', 'https://slack.com')
         # credentials
-        self.token = kwargs.get('token', credentials['token'])
-        self.channel = kwargs.get('channel', credentials['id'])
+        self.token = kwargs.get('token', setting["TOKEN"])
+        self.channel = kwargs.get('channel', setting["CHANNEL"])
         self.name = kwargs.get('name', 'bot')
         # set initial conversation id to 0 if no conversation has started yet
         self.thread_id = kwargs.get('thread_id', '0')
