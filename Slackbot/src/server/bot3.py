@@ -1,11 +1,13 @@
+# -*- coding: utf-8 -*-
 from chatterbot import ChatBot
+from config import setting
 
-__all__ = "chatbot_3"
+__all__ = ["chatbot_3"]
 
 chatbot_3 = ChatBot(
     name="Agent Smith",
-    input_adapter="input.SlackChat",
-    output_adapter="output.SlackChat",
+    input_adapter=setting["INPUT_ADAPTER"],
+    output_adapter=setting["OUTPUT_ADAPTER"],
     storage_adapter='chatterbot.storage.JsonFileStorageAdapter',
     logic_adapters=[
         'chatterbot.logic.BestMatch'
@@ -23,7 +25,7 @@ chatbot_3.train([
 # test bot 3
 if __name__ == "__main__":
 
-    print "You are now connected with {}".format(chatbot_3.name)
+    print "{} is now connected".format(chatbot_3.name)
     # The following loop will execute each time the user enters input
     while True:
         try:
