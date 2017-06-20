@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
 from chatterbot import ChatBot
+from config import setting
 
-__all__ = "chatbot_1"
+__all__ = ["chatbot_1"]
 
 chatbot_1 = ChatBot(
     name="HAL 9000",
-    input_adapter="input.SlackChat",
-    output_adapter="output.SlackChat",
+    input_adapter=setting["INPUT_ADAPTER"],
+    output_adapter=setting["OUTPUT_ADAPTER"],
     database='database.db',
     )
 
 # test bot 1
 if __name__ == "__main__":
+
+    print "{} is now connected".format(chatbot_1.name)
     # The following loop will execute each time the user enters input
     while True:
         try:
